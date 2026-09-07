@@ -1,0 +1,16 @@
+# Example sidecar next to Home Assistant / Mosquitto.
+# Copy env from .env.example.
+
+services:
+  racing:
+    image: ghcr.io/resnostyle/racing-mqtt:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    #   args:
+    #     SERVICE: racing
+    #     RUNTIME: distroless
+    container_name: racing-mqtt
+    restart: unless-stopped
+    env_file:
+      - .env

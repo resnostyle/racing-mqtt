@@ -1,0 +1,15 @@
+[tools]
+go = "1.24"
+
+[env]
+_.path = ["{{config_root}}/bin"]
+
+[tasks.test]
+run = "go test ./..."
+
+[tasks.racing]
+run = "go run ./cmd/racing"
+env = { _.file = ".env" }
+
+[tasks.build]
+run = "go build -o bin/racing ./cmd/racing"
